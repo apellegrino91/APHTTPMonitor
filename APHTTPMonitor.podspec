@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/apellegrino91/APHTTPMonitor.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '14331895' => 'antongiuliopellegrino@gmail.com' }
-  s.source           = { :git => 'https://github.com/apellegrino91/APHTTPMonitor.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/apellegrino91/APHTTPMonitor.git' }#, :tag => s.version.to_s }
   s.ios.deployment_target = '10.0'
   s.source_files = 'APHTTPMonitor/Classes/**/*'
   s.frameworks = 'UIKit'
