@@ -1,0 +1,27 @@
+PODS:
+  - APHTTPMonitor (0.1.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - APHTTPMonitor (from `../`)
+  - FBSnapshotTestCase (~> 2.1.4)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  APHTTPMonitor:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  APHTTPMonitor: 588f52c3336b19a51dfa7f3f621295b9c3557111
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+
+PODFILE CHECKSUM: 76992f212ff87edd5aa2dddbb2ceb67a19f6ed54
+
+COCOAPODS: 1.16.2

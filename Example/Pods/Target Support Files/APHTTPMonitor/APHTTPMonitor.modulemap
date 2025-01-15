@@ -1,0 +1,6 @@
+framework module APHTTPMonitor {
+  umbrella header "APHTTPMonitor-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -21,22 +21,15 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/14331895/APHTTPMonitor'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/apellegrino91/APHTTPMonitor.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '14331895' => 'a.pellegrino@ideasolutions.it' }
-  s.source           = { :git => 'https://github.com/14331895/APHTTPMonitor.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.author           = { '14331895' => 'antongiuliopellegrino@gmail.com' }
+  s.source           = { :git => 'https://github.com/apellegrino91/APHTTPMonitor.git', :tag => s.version.to_s }
   s.ios.deployment_target = '10.0'
-
   s.source_files = 'APHTTPMonitor/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'APHTTPMonitor' => ['APHTTPMonitor/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
+  s.dependency 'Swifter', '1.5.0'
+  s.resource_bundles = {
+    'APHTTPMonitor' => ['APHTTPMonitor/Assets/*.html']
+  }
 end

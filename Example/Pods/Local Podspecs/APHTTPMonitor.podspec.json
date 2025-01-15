@@ -1,0 +1,22 @@
+{
+  "name": "APHTTPMonitor",
+  "version": "0.1.0",
+  "summary": "A short description of APHTTPMonitor.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/14331895/APHTTPMonitor",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "14331895": "a.pellegrino@ideasolutions.it"
+  },
+  "source": {
+    "git": "https://github.com/14331895/APHTTPMonitor.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "APHTTPMonitor/Classes/**/*"
+}
