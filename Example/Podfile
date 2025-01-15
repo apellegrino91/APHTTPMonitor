@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'APHTTPMonitor_Example' do
+  pod 'APHTTPMonitor', :path => '../'
+
+  target 'APHTTPMonitor_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
