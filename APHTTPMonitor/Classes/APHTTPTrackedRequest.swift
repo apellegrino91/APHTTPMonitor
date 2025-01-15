@@ -42,7 +42,7 @@
         if (responseCode != nil && responseCode! >= 200 && responseCode! < 300) {
             statusColor = "success"
         } else if (responseCode != nil && responseCode! >= 400) {
-            statusColor = "error"
+            statusColor = "danger"
         }
         
         var htmlFile = htmlTemplate

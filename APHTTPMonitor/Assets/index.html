@@ -13,13 +13,17 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
+            
+            .mt-6 {
+                margin-top: 6rem;
+            }
         </style>
     <!-- <meta http-equiv="refresh" content="60" /> -->
 </head>
 
 <body>
 
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg mb-3">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
         <span class="navbar-brand mb-0 h1">APHTTPMonitor</span>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -31,7 +35,7 @@
         </ul>
         <button class="btn btn-outline-light my-2 my-sm-0" onclick="location.reload()">Refresh</button>
     </nav>
-    <div class="container">
+    <div class="container mt-6 mb-3">
         <div class="list-group">
             {requests-list}
         </div>
