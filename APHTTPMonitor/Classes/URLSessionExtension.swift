@@ -19,7 +19,7 @@ public extension URLSession {
                 responseString = String(data: respData!, encoding: String.Encoding.utf8) ?? "Unable to parse body"
             }
             
-            let responseCode = (response as! HTTPURLResponse).statusCode
+            let responseCode = (response is HTTPURLResponse) ? (response as! HTTPURLResponse).statusCode : 0
             
             APHTTPMonitor.shared().trackResponse(code: responseCode, body: responseString, requestID: trackedReq.id)
             completionHandler(respData,response,error)

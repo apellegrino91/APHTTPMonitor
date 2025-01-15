@@ -33,7 +33,7 @@ import Swifter
         do {
             try server?.start(3000)
             let port = try server!.port()
-            let addr = getWiFiAddress() ?? "127.0.0.1:8080"
+            let addr = getWiFiAddress() ?? "127.0.0.1:3000"
             print("Server started at \(addr):\(port)")
         } catch {
             print("Error starting webserver")
@@ -58,30 +58,13 @@ import Swifter
             var composedHtmlString = ""
             
             for req in self.trackedRequests {
-                composedHtmlString.append("<li class=\"list-group-item\">")
-                composedHtmlString.append("<h4>\(req.method)  \(req.url)</h4>")
-                
-                if req.headers != nil {
-                    composedHtmlString.append("<p><h5>Headers</h5><br><code>\(req.headers!)</code></p>")
+                let row = req.buildHTMLRow()
+                if row != nil {
+                    composedHtmlString.append(row!)
                 }
-                
-                if req.body != nil {
-                    let string = String(data: req.body!, encoding: String.Encoding.utf8)
-                    composedHtmlString.append("<p><h5>Body</h5><br><pre style=\"min-height: 100px;\" class=\"pre-scrollable\"><code>\(string ?? "Missing")</code></pre></p>")
-                }
-                
-                if req.response != nil {
-                    composedHtmlString.append("<p><h5>Response</h5><br><pre style=\"min-height: 100px;\" class=\"pre-scrollable\"><code>\(req.response!)</code></pre></p>")
-                }
-                
-                if req.responseCode != nil {
-                    composedHtmlString.append("<p><h5>Status code: </h5><code>\(req.responseCode!)</code></p>")
-                }
-                
-                composedHtmlString.append("</li>")
             }
             
-            htmlString = htmlString!.replacingOccurrences(of: "{placeholder}", with: composedHtmlString)
+            htmlString = htmlString!.replacingOccurrences(of: "{requests-list}", with: composedHtmlString)
             return HttpResponse.ok(.text(htmlString!))
         }
     }
