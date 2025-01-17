@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +18,69 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APHTTPMonitor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqf-sc-Xzb">
+                                <rect key="frame" x="15" y="238" width="345" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="pqY-VU-wzs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-Fs-XEW">
+                                <rect key="frame" x="164" y="318" width="49" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="4Ty-Bc-F1y"/>
+                                    <constraint firstAttribute="width" constant="47" id="Vmh-tz-say"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="switchValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="SOt-3k-6cq"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ink-tU-mF6">
+                                <rect key="frame" x="31" y="425" width="313" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Pud-zw-hQN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-AL-m6D">
+                                <rect key="frame" x="31" y="399" width="313" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="51g-MI-3tY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="cw5-AL-m6D" secondAttribute="trailing" constant="15" id="2vZ-kI-4Ci"/>
+                            <constraint firstItem="Vde-Fs-XEW" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="5mL-Ej-mmD"/>
+                            <constraint firstItem="Ink-tU-mF6" firstAttribute="top" secondItem="cw5-AL-m6D" secondAttribute="bottom" constant="5" id="6wg-7y-0y0"/>
+                            <constraint firstItem="Ink-tU-mF6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="15" id="LjB-Se-1xm"/>
+                            <constraint firstAttribute="trailing" secondItem="Lqf-sc-Xzb" secondAttribute="trailing" constant="15" id="PcC-2c-RGA"/>
+                            <constraint firstItem="cw5-AL-m6D" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="15" id="iXQ-f7-75d"/>
+                            <constraint firstItem="Lqf-sc-Xzb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="15" id="lv2-04-G7S"/>
+                            <constraint firstItem="Vde-Fs-XEW" firstAttribute="centerX" secondItem="Lqf-sc-Xzb" secondAttribute="centerX" id="vwe-Fb-iEQ"/>
+                            <constraint firstItem="Vde-Fs-XEW" firstAttribute="top" secondItem="Lqf-sc-Xzb" secondAttribute="bottom" constant="50" id="zCw-9n-9xw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ink-tU-mF6" secondAttribute="trailing" constant="15" id="zWg-Uu-mEy"/>
+                            <constraint firstItem="cw5-AL-m6D" firstAttribute="top" secondItem="Vde-Fs-XEW" secondAttribute="bottom" constant="50" id="zsz-Ik-9mS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblServerUrl" destination="Ink-tU-mF6" id="Wez-ca-uXl"/>
+                        <outlet property="lblStatus" destination="cw5-AL-m6D" id="l5i-qN-FLt"/>
+                        <outlet property="switchMonitor" destination="Vde-Fs-XEW" id="aXi-ab-550"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="-30"/>
         </scene>
     </scenes>
 </document>

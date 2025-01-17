@@ -29,19 +29,23 @@ import Swifter
     
     //MARK: Server-related methods
     
-    @objc public func start() {
+    @objc public func start(port: Int = 3000) -> String? {
         do {
-            try server?.start(3000)
+            try server?.start(UInt16(port))
             let port = try server!.port()
             let addr = getWiFiAddress() ?? "127.0.0.1:3000"
-            print("Server started at \(addr):\(port)")
+            let finalUrl = addr + ":" + String(port)
+            print("Server started at \(finalUrl)")
+            return finalUrl
         } catch {
             print("Error starting webserver")
+            return nil
         }
     }
     
     @objc public func stop() {
         server?.stop()
+        print("Server stopped")
     }
     
     @objc private func setupWebServer() {

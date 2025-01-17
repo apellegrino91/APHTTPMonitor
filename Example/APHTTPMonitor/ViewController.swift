@@ -7,18 +7,32 @@
 //
 
 import UIKit
+import APHTTPMonitor
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var switchMonitor: UISwitch!
+    @IBOutlet weak var lblStatus: UILabel!
+    @IBOutlet weak var lblServerUrl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        lblStatus.textColor = UIColor.red
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func switchValueChanged(_ sender: Any) {
+        if switchMonitor.isOn {
+            let url = APHTTPMonitor.shared().start()
+            lblStatus.textColor = UIColor.systemGreen
+            lblStatus.text = "Active"
+            lblServerUrl.text = url
+        } else {
+            APHTTPMonitor.shared().stop()
+            lblStatus.textColor = UIColor.red
+            lblStatus.text = "Stopped"
+            lblServerUrl.text = ""
+        }
     }
-
 }
 
