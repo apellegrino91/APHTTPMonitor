@@ -58,7 +58,7 @@ import Swifter
         }
         
         server!["/httpmonitor"] = { request in
-            var htmlString = self.retrieveHtmlTemplate()
+            var htmlString = self.retrieveHtmlTemplate(page: "index")
             var composedHtmlString = ""
             
             for req in self.trackedRequests {
@@ -84,6 +84,13 @@ import Swifter
         trackedReq.body = body
         
         trackedRequests.append(trackedReq)
+        
+        server!["/detail-" + trackedReq.id] = { httpRequest in
+            var htmlString = self.retrieveHtmlTemplate(page: "detail")
+            htmlString = htmlString!.replacingOccurrences(of: "{row-id}", with: trackedReq.id)
+            return HttpResponse.ok(.text(htmlString!))
+        }
+        
         return trackedReq
     }
     
@@ -143,11 +150,11 @@ import Swifter
         return address
     }
     
-    @objc private func retrieveHtmlTemplate() -> String? {
+    @objc private func retrieveHtmlTemplate(page: String) -> String? {
         let frameworkBundle = Bundle(for: APHTTPMonitor.self)
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("APHTTPMonitor.bundle")
         let resourceBundle = Bundle(url: bundleURL!)
-        let htmlFile = resourceBundle!.path(forResource: "index", ofType: "html")
+        let htmlFile = resourceBundle!.path(forResource: page, ofType: "html")
         return try? String(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8)
     }
 }

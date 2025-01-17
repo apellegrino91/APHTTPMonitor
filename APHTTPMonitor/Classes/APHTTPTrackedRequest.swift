@@ -50,7 +50,7 @@
         htmlFile = htmlFile!.replacingOccurrences(of: "{status-code}", with: String(responseCode ?? 0))
         htmlFile = htmlFile!.replacingOccurrences(of: "{status-color}", with: statusColor)
         htmlFile = htmlFile!.replacingOccurrences(of: "{url}", with: url)
-        
+        htmlFile = htmlFile!.replacingOccurrences(of: "{row-id}", with: id)
         return htmlFile
     }
 }
