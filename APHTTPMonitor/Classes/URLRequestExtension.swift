@@ -15,12 +15,12 @@ extension URLRequest {
             requestString += "Host: \(host)\n"
         }
         
-        // Aggiungi gli header della richiesta
+        //Adding request's headers
         for (headerField, headerValue) in self.allHTTPHeaderFields ?? [:] {
             requestString += "\(headerField): \(headerValue)\n"
         }
         
-        // Aggiungi il corpo della richiesta, se presente
+        //Adding body if present
         if let httpBody = self.httpBody, let bodyString = String(data: httpBody, encoding: .utf8) {
             requestString += "\n\(bodyString)"
         }
@@ -28,8 +28,3 @@ extension URLRequest {
         return requestString
     }
 }
-
-extension URLResponse {
-    
-}
-

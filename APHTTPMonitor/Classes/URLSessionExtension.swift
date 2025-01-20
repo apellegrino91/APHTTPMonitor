@@ -15,7 +15,7 @@ public extension URLSession {
         
         if m1 == nil || m2 == nil
         {
-            print("Swizzling failed")
+            print("[APHTTPMonitor] Swizzling failed")
         }
         
         if let m1 = m1, let m2 = m2 { method_exchangeImplementations(m1, m2) }
