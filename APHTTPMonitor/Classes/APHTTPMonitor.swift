@@ -48,7 +48,8 @@ import Swifter
         //Initialization of the router
         router = APHTTPRouter(server: server!)
         
-        //Prepare the webserver to listen and serve the main route
+        //Prepare the webserver to listen and serve the main route and the assets
+        router?.generateAssets()
         router?.generateMainRoute()
     }
     

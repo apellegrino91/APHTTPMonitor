@@ -16,7 +16,7 @@ import Swifter
         self.server = server
     }
     
-    @objc func generateMainRoute() {
+    @objc func generateAssets() {
         //Serving main css file
         server["/styles.css"] = { request in
             //Loading the css file via pageBuilder
@@ -42,7 +42,9 @@ import Swifter
             //JS file successfully loaded and served
             return HttpResponse.ok(.text(jsLoaded!))
         }
-        
+    }
+    
+    @objc func generateMainRoute() {
         //Listening for the main route
         server["/"] = { request in
             //Building the index page
