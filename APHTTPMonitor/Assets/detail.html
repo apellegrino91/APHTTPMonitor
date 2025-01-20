@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -44,6 +45,7 @@
 
         .tab-container {
             padding: 10px;
+            display: none; /* Nascondi di default */
         }
         
         pre {
@@ -72,11 +74,12 @@
 
                 // Nascondi tutti i tab-container non selezionati all'avvio
                 tabContainers.forEach(tab => {
-                    if (!tab.id.includes('1')) {
-                        tab.style.visibility = 'hidden';
-                        tab.style.position = 'absolute';
-                    }
+                    tab.style.display = 'none';
                 });
+
+                // Mostra solo il tab-container attivo all'avvio
+                document.getElementById('req-1-container').style.display = 'block';
+                document.getElementById('res-1-container').style.display = 'block';
 
                 items.forEach(item => {
                     item.addEventListener('click', function () {
@@ -85,14 +88,12 @@
                         this.classList.add('active');
                         // Nascondi tutti i tab-container correlati
                         tabContainers.forEach(tab => {
-                            tab.style.visibility = 'hidden';
-                            tab.style.position = 'absolute';
+                            tab.style.display = 'none';
                         });
                         // Mostra il tab-container corrispondente
                         const selectedTabContainer = document.getElementById(this.id + '-container');
                         if (selectedTabContainer) {
-                            selectedTabContainer.style.visibility = 'visible';
-                            selectedTabContainer.style.position = 'relative';
+                            selectedTabContainer.style.display = 'block';
                         }
                         // Aggiungi qui il codice per gestire l'azione del click
                         const selectedItemId = this.id;
@@ -102,8 +103,6 @@
             });
         });
     </script>
-
-
 
     <!-- <meta http-equiv="refresh" content="60" /> -->
 </head>

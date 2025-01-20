@@ -25,5 +25,19 @@
     @objc func statusCode() -> Int {
         return response?.statusCode ?? 0
     }
+    
+    @objc func requestBodyString() -> String? {
+        if let body = request?.httpBody, let bodyString = String(data: body, encoding: .utf8) {
+            return bodyString
+        }
+        return nil
+    }
+    
+    @objc func responseBodyString() -> String? {
+        if let body = responseData, let bodyString = String(data: body, encoding: .utf8) {
+            return bodyString
+        }
+        return nil
+    }
 }
 

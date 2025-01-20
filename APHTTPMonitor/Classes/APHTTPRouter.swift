@@ -44,5 +44,4 @@ import Swifter
             return HttpResponse.ok(.text(detailhtml!))
         }
     }
-    
 }
