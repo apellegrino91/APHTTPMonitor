@@ -1,0 +1,56 @@
+.text-truncate-multiline {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mt-6 {
+    margin-top: 6rem;
+}
+
+.segmented-control {
+    display: flex;
+    background-color: #f8f9fa;
+    border-bottom: 0;
+}
+
+.segmented-control-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    color: #f8f9fa;
+    background-color: #343a40;
+}
+
+.segmented-control-item:last-child {
+    border-right: none;
+}
+
+.segmented-control-item.active {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.tab-container {
+    padding: 10px;
+    display: none; /* Nascondi di default */
+}
+
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}

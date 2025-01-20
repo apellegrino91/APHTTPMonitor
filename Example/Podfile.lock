@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  APHTTPMonitor: a722ba70adad5d7b76c35219ea4c29053ddb5441
+  APHTTPMonitor: 23dba81ae1b8cb6fd1482127b86df16d0073b0de
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Swifter: e71dd674404923d7f03ebb03f3f222d1c570bc8e
 

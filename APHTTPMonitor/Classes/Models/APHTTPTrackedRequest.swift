@@ -23,10 +23,12 @@
     }
     
     @objc func statusCode() -> Int {
+        //Returns the response's status code
         return response?.statusCode ?? 0
     }
     
     @objc func requestBodyString() -> String? {
+        //Returns the body of the request as utf8 encoded string if present
         if let body = request?.httpBody, let bodyString = String(data: body, encoding: .utf8) {
             return bodyString
         }
@@ -34,6 +36,7 @@
     }
     
     @objc func responseBodyString() -> String? {
+        //Returns the body of the response as utf8 encoded string if present
         if let body = responseData, let bodyString = String(data: body, encoding: .utf8) {
             return bodyString
         }

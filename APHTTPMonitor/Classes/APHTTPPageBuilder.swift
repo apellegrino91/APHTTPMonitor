@@ -12,6 +12,8 @@
     var detailTemplate : String?            //detail.html string with placeholders
     var detailTableTemplate : String?       //table.html string with placeholders
     var detailTableRowTemplate : String?    //table-row.html string with placeholders
+    var cssTemplate : String?               //styles.css string
+    var segmentedJsTemplate : String?       //segmented.js string
     
     override init() {
         //Loading bundle with all the assets (.html files)
@@ -19,6 +21,36 @@
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("APHTTPMonitor.bundle")
         bundle = Bundle(url: bundleURL!)!
     }
+    
+    //MARK: Assets
+    
+    @objc func retrieveCss() -> String? {
+        var cssString : String?
+        
+        //Loading css file if needed
+        if cssTemplate == nil {
+            let cssFilePath = bundle.path(forResource: "styles", ofType: "css")
+            cssTemplate = try? String(contentsOfFile: cssFilePath!, encoding: String.Encoding.utf8)
+        }
+        
+        cssString = cssTemplate
+        return cssString
+    }
+    
+    @objc func retrieveSegmentedJS() -> String? {
+        var segmentedJsString : String?
+        
+        //Loading css file if needed
+        if segmentedJsTemplate == nil {
+            let jsFilePath = bundle.path(forResource: "segmented", ofType: "js")
+            segmentedJsTemplate = try? String(contentsOfFile: jsFilePath!, encoding: String.Encoding.utf8)
+        }
+        
+        segmentedJsString = segmentedJsTemplate
+        return segmentedJsString
+    }
+    
+    //MARK: Index and relative portions
     
     @objc func buildIndexPage(requests: [APHTTPTrackedRequest]) -> String? {
         var htmlString : String?
@@ -83,6 +115,8 @@
         
         return htmlString
     }
+    
+    //MARK: Detail and relative portions
     
     @objc func buildDetailPage(request: APHTTPTrackedRequest) -> String? {
         var htmlString : String?

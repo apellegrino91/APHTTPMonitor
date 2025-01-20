@@ -17,6 +17,32 @@ import Swifter
     }
     
     @objc func generateMainRoute() {
+        //Serving main css file
+        server["/styles.css"] = { request in
+            //Loading the css file via pageBuilder
+            let cssLoaded = self.pageBuilder.retrieveCss()
+            guard cssLoaded != nil else {
+                //Error loading file
+                return HttpResponse.notFound
+            }
+            
+            //Css file successfully loaded and served
+            return HttpResponse.ok(.text(cssLoaded!))
+        }
+        
+        //Serving js file for segmented controls
+        server["/segmented.js"] = { request in
+            //Loading the js file via pageBuilder
+            let jsLoaded = self.pageBuilder.retrieveSegmentedJS()
+            guard jsLoaded != nil else {
+                //Error loading file
+                return HttpResponse.notFound
+            }
+            
+            //JS file successfully loaded and served
+            return HttpResponse.ok(.text(jsLoaded!))
+        }
+        
         //Listening for the main route
         server["/"] = { request in
             //Building the index page

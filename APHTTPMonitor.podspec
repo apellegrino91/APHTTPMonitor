@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'APHTTPMonitor'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of APHTTPMonitor.'
+  s.version          = '0.9.0'
+  s.summary          = 'An useful monitor for all the HTTP traffic of your app.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -30,6 +30,6 @@ TODO: Add long description of the pod here.
   s.frameworks = 'UIKit'
   s.dependency 'Swifter', '1.5.0'
   s.resource_bundles = {
-    'APHTTPMonitor' => ['APHTTPMonitor/Assets/*.html']
+    'APHTTPMonitor' => ['APHTTPMonitor/Assets/**/*']
   }
 end

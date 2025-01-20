@@ -6,105 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-    <style>
-        .text-truncate-multiline {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .mt-6 {
-            margin-top: 6rem;
-        }
-
-        .segmented-control {
-            display: flex;
-            background-color: #f8f9fa;
-            border-bottom: 0;
-        }
-
-        .segmented-control-item {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            cursor: pointer;
-            color: #f8f9fa;
-            background-color: #343a40;
-        }
-
-        .segmented-control-item:last-child {
-            border-right: none;
-        }
-
-        .segmented-control-item.active {
-            background-color: #f8f9fa;
-            color: #343a40;
-        }
-
-        .tab-container {
-            padding: 10px;
-            display: none; /* Nascondi di default */
-        }
-        
-        pre {
-            background: #f4f4f4;
-            border: 1px solid #ddd;
-            color: #666;
-            page-break-inside: avoid;
-            font-family: monospace;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 1.6em;
-            max-width: 100%;
-            overflow: auto;
-            padding: 1em 1.5em;
-            display: block;
-            word-wrap: break-word;
-        }
-
-    </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const segmentedControls = document.querySelectorAll('.segmented-control-container');
-            segmentedControls.forEach(control => {
-                const items = control.querySelectorAll('.segmented-control-item');
-                const tabContainers = control.parentElement.querySelectorAll('.tab-container');
-
-                // Nascondi tutti i tab-container non selezionati all'avvio
-                tabContainers.forEach(tab => {
-                    tab.style.display = 'none';
-                });
-
-                // Mostra solo il tab-container attivo all'avvio
-                document.getElementById('req-1-container').style.display = 'block';
-                document.getElementById('res-1-container').style.display = 'block';
-
-                items.forEach(item => {
-                    item.addEventListener('click', function () {
-                        const itemsInContainer = control.querySelectorAll('.segmented-control-item');
-                        itemsInContainer.forEach(i => i.classList.remove('active'));
-                        this.classList.add('active');
-                        // Nascondi tutti i tab-container correlati
-                        tabContainers.forEach(tab => {
-                            tab.style.display = 'none';
-                        });
-                        // Mostra il tab-container corrispondente
-                        const selectedTabContainer = document.getElementById(this.id + '-container');
-                        if (selectedTabContainer) {
-                            selectedTabContainer.style.display = 'block';
-                        }
-                        // Aggiungi qui il codice per gestire l'azione del click
-                        const selectedItemId = this.id;
-                        console.log("ID dell'elemento attivo: " + selectedItemId + ", Testo: " + this.textContent);
-                    });
-                });
-            });
-        });
-    </script>
-
-    <!-- <meta http-equiv="refresh" content="60" /> -->
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 
 <body>
@@ -123,7 +25,7 @@
     </nav>
     <div class="container mt-6 mb-3">
         <div class="jumbotron">
-            <h1>Dettaglio della request #{row-id}</h1>
+            <h1>Request #{row-id} details</h1>
             <p class="lead text-break">
                 {req-url}
             </p>
@@ -178,7 +80,7 @@
             </div>
         </div>
     </div>
-
+    <script src="segmented.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
