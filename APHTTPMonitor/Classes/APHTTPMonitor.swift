@@ -9,7 +9,8 @@ import Swifter
 
 @objc public class APHTTPMonitor : NSObject {
     private var server : HttpServer?                            //The swifter's webserver
-    private var trackedRequests : [APHTTPTrackedRequest] = []   //Array of tracked requests
+    public var trackedRequests : [APHTTPTrackedRequest] = []   //Array of tracked requests
+    private var router : APHTTPRouter?
     
     //MARK: Constructor and singleton methods
     
@@ -49,7 +50,7 @@ import Swifter
     }
     
     @objc private func setupWebServer() {
-        swizzleURLSession()
+        URLSession.swizzle()
         server = HttpServer()
         
         guard server != nil else {
@@ -57,64 +58,29 @@ import Swifter
             return
         }
         
-        server!["/httpmonitor"] = { request in
-            var htmlString = self.retrieveHtmlTemplate(page: "index")
-            var composedHtmlString = ""
-            
-            for req in self.trackedRequests {
-                let row = req.buildHTMLRow()
-                if row != nil {
-                    composedHtmlString.append(row!)
-                }
-            }
-            
-            htmlString = htmlString!.replacingOccurrences(of: "{requests-list}", with: composedHtmlString)
-            return HttpResponse.ok(.text(htmlString!))
-        }
+        router = APHTTPRouter(server: server!)
+        router?.generateMainRoute()
     }
     
     @objc func trackRequest(req: URLRequest) -> APHTTPTrackedRequest {
         let url = req.url!.absoluteString
         let method = req.httpMethod!
-        let headers = req.allHTTPHeaderFields
-        let body = req.httpBody
         
-        let trackedReq = APHTTPTrackedRequest(url: url, method: method)
-        trackedReq.headers = headers
-        trackedReq.body = body
+        let trackedReq = APHTTPTrackedRequest(url: url, method: method, id: String(trackedRequests.count))
+        trackedReq.request = req
         
         trackedRequests.append(trackedReq)
-        
-        server!["/detail-" + trackedReq.id] = { httpRequest in
-            var htmlString = self.retrieveHtmlTemplate(page: "detail")
-            htmlString = htmlString!.replacingOccurrences(of: "{row-id}", with: trackedReq.id)
-            return HttpResponse.ok(.text(htmlString!))
-        }
-        
+        router?.generateDetailRoute(request: trackedReq)
         return trackedReq
     }
     
-    @objc func trackResponse(code: Int, body: String, requestID: String)
+    @objc func trackResponse(response: URLResponse?, responseData: Data?, requestID: String)
     {
-        self.trackedRequests.filter { (req) -> Bool in return req.id == requestID }.first?.response = body
-        self.trackedRequests.filter { (req) -> Bool in return req.id == requestID }.first?.responseCode = code
+        self.trackedRequests.filter { (req) -> Bool in return req.id == requestID }.first?.response = (response as? HTTPURLResponse)
+        self.trackedRequests.filter { (req) -> Bool in return req.id == requestID }.first?.responseData = responseData
     }
     
     //MARK: Utils
-    
-    @objc private func swizzleURLSession() {
-        let selector = #selector((URLSession.dataTask(with:completionHandler:)) as (URLSession) -> (URLRequest, @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask)
-        
-        let m1 = class_getInstanceMethod(URLSession.self, selector)
-        let m2 = class_getInstanceMethod(URLSession.self, #selector(URLSession.swizzled_dataTask(req:completionHandler:)))
-        
-        if m1 == nil || m2 == nil
-        {
-            print("Swizzling failed")
-        }
-        
-        if let m1 = m1, let m2 = m2 { method_exchangeImplementations(m1, m2) }
-    }
     
     @objc private func getWiFiAddress() -> String? {
         var address : String?
@@ -148,13 +114,5 @@ import Swifter
         freeifaddrs(ifaddr)
         
         return address
-    }
-    
-    @objc private func retrieveHtmlTemplate(page: String) -> String? {
-        let frameworkBundle = Bundle(for: APHTTPMonitor.self)
-        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("APHTTPMonitor.bundle")
-        let resourceBundle = Bundle(url: bundleURL!)
-        let htmlFile = resourceBundle!.path(forResource: page, ofType: "html")
-        return try? String(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8)
     }
 }

@@ -1,60 +1,196 @@
-
 <html>
-    
-    <head>
-        <title>APHTTPMonitor</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-        <style>
-            .text-truncate-multiline {
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            
-            .mt-6 {
-                margin-top: 6rem;
-            }
-        </style>
-        <!-- <meta http-equiv="refresh" content="60" /> -->
-    </head>
-    
-    <body>
+
+<head>
+    <title>APHTTPMonitor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <style>
+        .text-truncate-multiline {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .mt-6 {
+            margin-top: 6rem;
+        }
+
+        .segmented-control {
+            display: flex;
+            background-color: #f8f9fa;
+            border-bottom: 0;
+        }
+
+        .segmented-control-item {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            color: #f8f9fa;
+            background-color: #343a40;
+        }
+
+        .segmented-control-item:last-child {
+            border-right: none;
+        }
+
+        .segmented-control-item.active {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .tab-container {
+            padding: 10px;
+        }
         
-        <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
-            <span class="navbar-brand mb-0 h1">APHTTPMonitor</span>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Requests</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-            </ul>
-            <button class="btn btn-outline-light my-2 my-sm-0" onclick="document.location.reload()">Refresh</button>
-        </nav>
-        <div class="container mt-6 mb-3">
-            <h1>Dettaglio della request {row-id}</h1>
+        pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            color: #666;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: 1em 1.5em;
+            display: block;
+            word-wrap: break-word;
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const segmentedControls = document.querySelectorAll('.segmented-control-container');
+            segmentedControls.forEach(control => {
+                const items = control.querySelectorAll('.segmented-control-item');
+                const tabContainers = control.parentElement.querySelectorAll('.tab-container');
+
+                // Nascondi tutti i tab-container non selezionati all'avvio
+                tabContainers.forEach(tab => {
+                    if (!tab.id.includes('1')) {
+                        tab.style.visibility = 'hidden';
+                        tab.style.position = 'absolute';
+                    }
+                });
+
+                items.forEach(item => {
+                    item.addEventListener('click', function () {
+                        const itemsInContainer = control.querySelectorAll('.segmented-control-item');
+                        itemsInContainer.forEach(i => i.classList.remove('active'));
+                        this.classList.add('active');
+                        // Nascondi tutti i tab-container correlati
+                        tabContainers.forEach(tab => {
+                            tab.style.visibility = 'hidden';
+                            tab.style.position = 'absolute';
+                        });
+                        // Mostra il tab-container corrispondente
+                        const selectedTabContainer = document.getElementById(this.id + '-container');
+                        if (selectedTabContainer) {
+                            selectedTabContainer.style.visibility = 'visible';
+                            selectedTabContainer.style.position = 'relative';
+                        }
+                        // Aggiungi qui il codice per gestire l'azione del click
+                        const selectedItemId = this.id;
+                        console.log("ID dell'elemento attivo: " + selectedItemId + ", Testo: " + this.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+
+
+
+    <!-- <meta http-equiv="refresh" content="60" /> -->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+        <span class="navbar-brand mb-0 h1">APHTTPMonitor</span>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Requests</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+        <button class="btn btn-outline-light my-2 my-sm-0" onclick="document.location.reload()">Refresh</button>
+    </nav>
+    <div class="container mt-6 mb-3">
+        <div class="jumbotron">
+            <h1>Dettaglio della request #{row-id}</h1>
+            <p class="lead">
+                {req-url}
+            </p>
+            <p>
+            {req-time}
+            </p>
         </div>
-        <!-- jQuery -->
-        <script
-            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"
-            ></script>
-        <!-- Popper.js, then Bootstrap JS -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"
-            ></script>
-        <script
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"
-            ></script>
-    </body>
-    
+        <div class="row no-gutters bg-dark">
+            <div class="col-6 border">
+                <h3 class="text-light text-center m-2">Request</h3>
+                <div class="segmented-control-container">
+                    <div class="segmented-control">
+                        <div class="segmented-control-item active" id="req-1">Raw</div>
+                        <div class="segmented-control-item" id="req-2">Body</div>
+                        <div class="segmented-control-item" id="req-3">Headers</div>
+                    </div>
+                </div>
+                <div class="col-12 bg-light tab-container" id="req-1-container">
+                    <h4>Request raw</h4>
+                    <pre class="m-0"><code>{req-raw}</code></pre>
+                </div>
+                <div class="col-12 bg-light tab-container" id="req-2-container">
+                    <h4>Request body</h4>
+                    <pre class="m-0"><code>{req-body}</code></pre>
+                </div>
+                <div class="col-12 bg-light tab-container" id="req-3-container">
+                    <h4>Request headers</h4>
+                    {req-headers}
+                </div>
+            </div>
+            <div class="col-6 border-bottom border-right border-top">
+                <h3 class="text-light text-center m-2">Response</h3>
+                <div class="segmented-control-container">
+                    <div class="segmented-control">
+                        <div class="segmented-control-item active" id="res-1">Raw</div>
+                        <div class="segmented-control-item" id="res-2">Body</div>
+                        <div class="segmented-control-item" id="res-3">Headers</div>
+                    </div>
+                </div>
+                <div class="col-12 bg-light tab-container" id="res-1-container">
+                    <h4>Response raw</h4>
+                    <pre class="m-0"><code>{res-raw}</code></pre>
+                </div>
+                <div class="col-12 bg-light tab-container" id="res-2-container">
+                    <h4>Response body</h4>
+                    <pre class="m-0"><code>{res-body}</code></pre>
+                </div>
+                <div class="col-12 bg-light tab-container" id="res-3-container">
+                    <h4>Response headers</h4>
+                    {res-headers}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <!-- Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>

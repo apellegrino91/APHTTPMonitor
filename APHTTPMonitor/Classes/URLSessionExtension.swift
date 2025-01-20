@@ -7,21 +7,26 @@
 
 public extension URLSession {
     
-    @objc public dynamic func swizzled_dataTask(req: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+    @objc static func swizzle() {
+        let selector = #selector((URLSession.dataTask(with:completionHandler:)) as (URLSession) -> (URLRequest, @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask)
+        
+        let m1 = class_getInstanceMethod(URLSession.self, selector)
+        let m2 = class_getInstanceMethod(URLSession.self, #selector(URLSession.swizzled_dataTask(req:completionHandler:)))
+        
+        if m1 == nil || m2 == nil
+        {
+            print("Swizzling failed")
+        }
+        
+        if let m1 = m1, let m2 = m2 { method_exchangeImplementations(m1, m2) }
+    }
+    
+    @objc dynamic func swizzled_dataTask(req: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         
         let trackedReq = APHTTPMonitor.shared().trackRequest(req: req)
         var newCompletion : (Data?, URLResponse?, Error?) -> Void
         newCompletion = { respData, response, error in
-            
-            var responseString = ""
-            if respData != nil
-            {
-                responseString = String(data: respData!, encoding: String.Encoding.utf8) ?? "Unable to parse body"
-            }
-            
-            let responseCode = (response is HTTPURLResponse) ? (response as! HTTPURLResponse).statusCode : 0
-            
-            APHTTPMonitor.shared().trackResponse(code: responseCode, body: responseString, requestID: trackedReq.id)
+            APHTTPMonitor.shared().trackResponse(response: response, responseData: respData, requestID: trackedReq.id)
             completionHandler(respData,response,error)
         }
         

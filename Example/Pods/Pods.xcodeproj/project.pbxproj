@@ -48,7 +48,7 @@
 		8B30AB30BE52792D8EA56235D71AE9D8 /* APHTTPMonitor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0716234767E1FA6AA8D53A376CEA4A16 /* APHTTPMonitor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8C84DA785DBFD7E8E8DC585789D4E047 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC64EF7AE7BC98C5FCFD6CFF49311FBD /* Socket.swift */; };
 		8FD1AB468AF7F87112C3674006F6BC6E /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FA7178444C0A5AE7440FCCAB307C2 /* SwiftSupport.swift */; };
-		9A962F9098CAA9759B42EB9C19C2AEE9 /* APHTTPMonitor-APHTTPMonitor in Resources */ = {isa = PBXBuildFile; fileRef = 2190874F61AB6A8D66D85E927B8CBD7C /* APHTTPMonitor-APHTTPMonitor */; };
+		9A962F9098CAA9759B42EB9C19C2AEE9 /* APHTTPMonitor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2190874F61AB6A8D66D85E927B8CBD7C /* APHTTPMonitor.bundle */; };
 		A0EA07F483111EA92E86B6D5738757E2 /* APHTTPTrackedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CCCE821DE359DFB91E9C451D5173FD /* APHTTPTrackedRequest.swift */; };
 		A84251370856E579190EDD52FA84D046 /* String+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FC13E0320FBD3E9480E8D2DAC44DAD /* String+Misc.swift */; };
 		AEFB700F9EE77EE9848A8AC8C3F00A7F /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BCFF95FE026F85B187FEECDFD12C7 /* FBSnapshotTestCasePlatform.m */; };
@@ -67,6 +67,10 @@
 		EA5924031A71EF807EC467903E26FAC0 /* UIImage+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 329E11602053AF525E39D44343277C70 /* UIImage+Snapshot.m */; };
 		EB6A27886473A46BEAD66E6E5839B890 /* MimeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6495EDAF71A259090F86A1C109E2AE1E /* MimeTypes.swift */; };
 		EEB1D7836C768EF1FCC001CED1F464DD /* Pods-APHTTPMonitor_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFD4B35AF7D5B33157ABF393BCABBCD /* Pods-APHTTPMonitor_Tests-dummy.m */; };
+		F7AF2C902D3E57D800E24DBE /* APHTTPPageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF2C8F2D3E57D200E24DBE /* APHTTPPageBuilder.swift */; };
+		F7AF2C922D3E649300E24DBE /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF2C912D3E649300E24DBE /* URLRequestExtension.swift */; };
+		F7AF2C942D3E652E00E24DBE /* URLResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF2C932D3E652900E24DBE /* URLResponseExtension.swift */; };
+		F7AF2C962D3E6F6600E24DBE /* APHTTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF2C952D3E6F5F00E24DBE /* APHTTPRouter.swift */; };
 		F822382AB9E7B343C04964B313B1743D /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = BA7488EB82550AD39B8801D62C336F7A /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
@@ -125,7 +129,7 @@
 		1867F6E5C7084E2AB94DE6EAE5C109EA /* FBSnapshotTestCase-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FBSnapshotTestCase-Info.plist"; sourceTree = "<group>"; };
 		1FC7D9AF7AF14F1958A061300D3FF702 /* Pods-APHTTPMonitor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-APHTTPMonitor_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		21493BC1637A84577A283FF1A334B901 /* Pods-APHTTPMonitor_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-APHTTPMonitor_Example-umbrella.h"; sourceTree = "<group>"; };
-		2190874F61AB6A8D66D85E927B8CBD7C /* APHTTPMonitor-APHTTPMonitor */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "APHTTPMonitor-APHTTPMonitor"; path = APHTTPMonitor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		2190874F61AB6A8D66D85E927B8CBD7C /* APHTTPMonitor.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APHTTPMonitor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B019A5492BAA251237A5E3320B41D42 /* APHTTPMonitor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = APHTTPMonitor.modulemap; sourceTree = "<group>"; };
 		2E582E8CBF8DB4B1091E311868E80559 /* FBSnapshotTestCase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCase.m; path = FBSnapshotTestCase/FBSnapshotTestCase.m; sourceTree = "<group>"; };
 		329E11602053AF525E39D44343277C70 /* UIImage+Snapshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Snapshot.m"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.m"; sourceTree = "<group>"; };
@@ -133,12 +137,12 @@
 		3D1E41EAC2405153404AFA684CBC51D0 /* Pods-APHTTPMonitor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-APHTTPMonitor_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3F0C400327096831C9C463FEDF89FD92 /* Pods-APHTTPMonitor_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-APHTTPMonitor_Example-frameworks.sh"; sourceTree = "<group>"; };
 		41E6A836F9CD861ECE48DECF282685C7 /* FBSnapshotTestCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSnapshotTestCase.debug.xcconfig; sourceTree = "<group>"; };
-		4736E20468BF5914742F844CF3467850 /* Pods-APHTTPMonitor_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-APHTTPMonitor_Tests"; path = Pods_APHTTPMonitor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4736E20468BF5914742F844CF3467850 /* Pods_APHTTPMonitor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APHTTPMonitor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4879EA02E8E06D99934D32A8D1C721CA /* Pods-APHTTPMonitor_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-APHTTPMonitor_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		498DADF514D663E7562D1B751F5ACCFA /* APHTTPMonitor */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = APHTTPMonitor; path = APHTTPMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		498DADF514D663E7562D1B751F5ACCFA /* APHTTPMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APHTTPMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7D64AC27F5E8C2EC31C8AC5AD9F6BC /* UIImage+Compare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Compare.m"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.m"; sourceTree = "<group>"; };
 		4B232EDCE6BBCDB87458F5545CF6F5D8 /* Swifter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Swifter.modulemap; sourceTree = "<group>"; };
-		4C4353A939604EBC7FE7581F1017B19B /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = APHTTPMonitor/Assets/index.html; sourceTree = "<group>"; };
+		4C4353A939604EBC7FE7581F1017B19B /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = index.html; path = APHTTPMonitor/Assets/index.html; sourceTree = "<group>"; };
 		4FA63C52012BE8308A0A9901D2C7520D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		50824B1DF88462E2D6B8988E836271F5 /* Swifter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Swifter.debug.xcconfig; sourceTree = "<group>"; };
 		53867E18D8A54F20D388619D33FD2E0A /* DemoServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DemoServer.swift; path = XCode/Sources/DemoServer.swift; sourceTree = "<group>"; };
@@ -147,19 +151,19 @@
 		57AF7D3DF6CA1B47700EB033D21BAEFD /* Pods-APHTTPMonitor_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-APHTTPMonitor_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5811C0400284359552A5D8DD117C5E1E /* Errno.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errno.swift; path = XCode/Sources/Errno.swift; sourceTree = "<group>"; };
 		5987CFBF6EADC5E402ADFE0CCAA7F544 /* HttpServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HttpServer.swift; path = XCode/Sources/HttpServer.swift; sourceTree = "<group>"; };
-		5BA365BF51DB302D03D5269E8AAF4BAF /* detail.html */ = {isa = PBXFileReference; includeInIndex = 1; name = detail.html; path = APHTTPMonitor/Assets/detail.html; sourceTree = "<group>"; };
-		5C09314F490175729E9F6B6330D69E0E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FBSnapshotTestCase; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA365BF51DB302D03D5269E8AAF4BAF /* detail.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = detail.html; path = APHTTPMonitor/Assets/detail.html; sourceTree = "<group>"; };
+		5C09314F490175729E9F6B6330D69E0E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD2F9AA72D40F110F66BD35DFBBD549 /* Swifter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swifter-prefix.pch"; sourceTree = "<group>"; };
 		5CFDFC2633B8154AF5F5417860B2AF83 /* HttpResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HttpResponse.swift; path = XCode/Sources/HttpResponse.swift; sourceTree = "<group>"; };
 		5EB8A5943B108BD3CBC1EE7C53B5A867 /* Pods-APHTTPMonitor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-APHTTPMonitor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6495EDAF71A259090F86A1C109E2AE1E /* MimeTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MimeTypes.swift; path = XCode/Sources/MimeTypes.swift; sourceTree = "<group>"; };
 		6592F42DF2197893C060AA144D376EC7 /* APHTTPMonitor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "APHTTPMonitor-dummy.m"; sourceTree = "<group>"; };
-		68B841B1164F7057B6D2AB99167118D0 /* Pods-APHTTPMonitor_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-APHTTPMonitor_Example"; path = Pods_APHTTPMonitor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68B841B1164F7057B6D2AB99167118D0 /* Pods_APHTTPMonitor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APHTTPMonitor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ECF0024A2F5C32E714B1C47F291F99 /* HttpRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HttpRouter.swift; path = XCode/Sources/HttpRouter.swift; sourceTree = "<group>"; };
 		69FFF6046E4F051C6B745C0ACB11E20E /* APHTTPMonitor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "APHTTPMonitor-prefix.pch"; sourceTree = "<group>"; };
 		6A4BE4670A7208310E7C367F9AE4EF74 /* Pods-APHTTPMonitor_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-APHTTPMonitor_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		6A661E0EE9A7B445906FFC006D6D3230 /* APHTTPMonitor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = APHTTPMonitor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6A661E0EE9A7B445906FFC006D6D3230 /* APHTTPMonitor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = APHTTPMonitor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6E9ECBD36ADD0CB3640D6F9F8B00EFFC /* Process.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Process.swift; path = XCode/Sources/Process.swift; sourceTree = "<group>"; };
 		753C2B0B7E5D053EBA7EB21730C20FB7 /* String+File.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+File.swift"; path = "XCode/Sources/String+File.swift"; sourceTree = "<group>"; };
 		75C709709CF60213EB7E71E55074C303 /* Swifter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swifter-umbrella.h"; sourceTree = "<group>"; };
@@ -174,7 +178,7 @@
 		93C5685FEB907FD052C243C50D9BBFF4 /* APHTTPMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = APHTTPMonitor.release.xcconfig; sourceTree = "<group>"; };
 		94A457844F952416EB2A4D636B6265F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		985B993B7AD3364D2955140C19AAF40F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A2B1BB44FF34B3E780A3D0370D0521D4 /* FBSnapshotTestController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestController.h; path = FBSnapshotTestCase/FBSnapshotTestController.h; sourceTree = "<group>"; };
 		A36B6F8F99C9D45A53D4662FDAF88E22 /* Pods-APHTTPMonitor_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-APHTTPMonitor_Tests-umbrella.h"; sourceTree = "<group>"; };
 		A5275AAB7B26618295982441EE0FF941 /* Swifter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Swifter-Info.plist"; sourceTree = "<group>"; };
@@ -182,7 +186,7 @@
 		A8FF78CFBCE405EE71C1A5A065BBE428 /* UIApplication+StrictKeyWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+StrictKeyWindow.h"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.h"; sourceTree = "<group>"; };
 		A9FC13E0320FBD3E9480E8D2DAC44DAD /* String+Misc.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Misc.swift"; path = "XCode/Sources/String+Misc.swift"; sourceTree = "<group>"; };
 		AEDB4FB389DFCC8C3FEADA8768B52823 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		B23A04D9BD3896FBE67E42B0EFFE2221 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		B23A04D9BD3896FBE67E42B0EFFE2221 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B566BF1AF1BCD4E603E59FD2CA72FBB9 /* Swifter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Swifter-dummy.m"; sourceTree = "<group>"; };
 		BA7488EB82550AD39B8801D62C336F7A /* UIImage+Diff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Diff.h"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.h"; sourceTree = "<group>"; };
 		BAFD4B35AF7D5B33157ABF393BCABBCD /* Pods-APHTTPMonitor_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-APHTTPMonitor_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -192,7 +196,7 @@
 		C507E569BFFD7902B48CF6EAB52533FD /* UIImage+Diff.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Diff.m"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.m"; sourceTree = "<group>"; };
 		C83E4386329C6603046A75152668AFF2 /* Pods-APHTTPMonitor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-APHTTPMonitor_Example.modulemap"; sourceTree = "<group>"; };
 		C8C73F04736501041187A5E00877AECE /* HttpParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HttpParser.swift; path = XCode/Sources/HttpParser.swift; sourceTree = "<group>"; };
-		C90F5A445F17C2692AE37FE7917FAB77 /* row.html */ = {isa = PBXFileReference; includeInIndex = 1; name = row.html; path = APHTTPMonitor/Assets/row.html; sourceTree = "<group>"; };
+		C90F5A445F17C2692AE37FE7917FAB77 /* row.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = row.html; path = APHTTPMonitor/Assets/row.html; sourceTree = "<group>"; };
 		C9CFC8C1F001147C07F0940B707FE658 /* Pods-APHTTPMonitor_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-APHTTPMonitor_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		CE034B8C617787492989532915705525 /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
 		CF3CDCD3241E3373F66E7C04B3A2E94E /* APHTTPMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APHTTPMonitor.swift; path = APHTTPMonitor/Classes/APHTTPMonitor.swift; sourceTree = "<group>"; };
@@ -205,10 +209,14 @@
 		DFF0DBB81173046C665368CEE684976E /* Files.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Files.swift; path = XCode/Sources/Files.swift; sourceTree = "<group>"; };
 		E01C56F06C47BFD0A0DC3C30542C3220 /* String+SHA1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+SHA1.swift"; path = "XCode/Sources/String+SHA1.swift"; sourceTree = "<group>"; };
 		E1C6E89F62BD564F79B80B033AC003A4 /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
-		E7E98885A0FEF49E9EE8975449969BEB /* Swifter */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Swifter; path = Swifter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7E98885A0FEF49E9EE8975449969BEB /* Swifter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swifter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E908BDC0A20F04170CCBDC06C0A0461C /* Pods-APHTTPMonitor_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-APHTTPMonitor_Tests-Info.plist"; sourceTree = "<group>"; };
 		F554E476FD2EABA967BF7DE9899CE417 /* ResourceBundle-APHTTPMonitor-APHTTPMonitor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-APHTTPMonitor-APHTTPMonitor-Info.plist"; sourceTree = "<group>"; };
 		F749BE0A37CA0152B4164C5FFB297880 /* Pods-APHTTPMonitor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-APHTTPMonitor_Tests.modulemap"; sourceTree = "<group>"; };
+		F7AF2C8F2D3E57D200E24DBE /* APHTTPPageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APHTTPPageBuilder.swift; sourceTree = "<group>"; };
+		F7AF2C912D3E649300E24DBE /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
+		F7AF2C932D3E652900E24DBE /* URLResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResponseExtension.swift; sourceTree = "<group>"; };
+		F7AF2C952D3E6F5F00E24DBE /* APHTTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APHTTPRouter.swift; sourceTree = "<group>"; };
 		F857A80266EE4CDB963C2F55FEB0823D /* String+BASE64.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+BASE64.swift"; path = "XCode/Sources/String+BASE64.swift"; sourceTree = "<group>"; };
 		F8D6B698063BF04FE10E47B0D8314AFD /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -327,7 +335,6 @@
 				D5A8FF25F46C7F5BEE3B9B9A0D8E76F4 /* WebSockets.swift */,
 				D5505CD2532A5B142A947CFC88F9DF02 /* Support Files */,
 			);
-			name = Swifter;
 			path = Swifter;
 			sourceTree = "<group>";
 		};
@@ -338,7 +345,6 @@
 				3A090EFEECFA546FA8059A569FE6B414 /* Support Files */,
 				F81DCCB8068D8EF28EDE833A0F11730B /* SwiftSupport */,
 			);
-			name = FBSnapshotTestCase;
 			path = FBSnapshotTestCase;
 			sourceTree = "<group>";
 		};
@@ -418,12 +424,12 @@
 		BFC7E8F5B1385FDA66B8F5457EC8EFF0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				498DADF514D663E7562D1B751F5ACCFA /* APHTTPMonitor */,
-				2190874F61AB6A8D66D85E927B8CBD7C /* APHTTPMonitor-APHTTPMonitor */,
-				5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase */,
-				68B841B1164F7057B6D2AB99167118D0 /* Pods-APHTTPMonitor_Example */,
-				4736E20468BF5914742F844CF3467850 /* Pods-APHTTPMonitor_Tests */,
-				E7E98885A0FEF49E9EE8975449969BEB /* Swifter */,
+				498DADF514D663E7562D1B751F5ACCFA /* APHTTPMonitor.framework */,
+				2190874F61AB6A8D66D85E927B8CBD7C /* APHTTPMonitor.bundle */,
+				5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase.framework */,
+				68B841B1164F7057B6D2AB99167118D0 /* Pods_APHTTPMonitor_Example.framework */,
+				4736E20468BF5914742F844CF3467850 /* Pods_APHTTPMonitor_Tests.framework */,
+				E7E98885A0FEF49E9EE8975449969BEB /* Swifter.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -458,6 +464,10 @@
 		D70D954A66342F4F01695F6C8C7D62D0 /* APHTTPMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				F7AF2C952D3E6F5F00E24DBE /* APHTTPRouter.swift */,
+				F7AF2C932D3E652900E24DBE /* URLResponseExtension.swift */,
+				F7AF2C912D3E649300E24DBE /* URLRequestExtension.swift */,
+				F7AF2C8F2D3E57D200E24DBE /* APHTTPPageBuilder.swift */,
 				CF3CDCD3241E3373F66E7C04B3A2E94E /* APHTTPMonitor.swift */,
 				37CCCE821DE359DFB91E9C451D5173FD /* APHTTPTrackedRequest.swift */,
 				5BA365BF51DB302D03D5269E8AAF4BAF /* detail.html */,
@@ -583,7 +593,7 @@
 			);
 			name = "Pods-APHTTPMonitor_Tests";
 			productName = Pods_APHTTPMonitor_Tests;
-			productReference = 4736E20468BF5914742F844CF3467850 /* Pods-APHTTPMonitor_Tests */;
+			productReference = 4736E20468BF5914742F844CF3467850 /* Pods_APHTTPMonitor_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8AAF80932FF414A8E8D75A9FFEADBA64 /* APHTTPMonitor-APHTTPMonitor */ = {
@@ -600,7 +610,7 @@
 			);
 			name = "APHTTPMonitor-APHTTPMonitor";
 			productName = APHTTPMonitor;
-			productReference = 2190874F61AB6A8D66D85E927B8CBD7C /* APHTTPMonitor-APHTTPMonitor */;
+			productReference = 2190874F61AB6A8D66D85E927B8CBD7C /* APHTTPMonitor.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		973E3ACB8F06F413A9A1B3C411FD4ADC /* Pods-APHTTPMonitor_Example */ = {
@@ -620,7 +630,7 @@
 			);
 			name = "Pods-APHTTPMonitor_Example";
 			productName = Pods_APHTTPMonitor_Example;
-			productReference = 68B841B1164F7057B6D2AB99167118D0 /* Pods-APHTTPMonitor_Example */;
+			productReference = 68B841B1164F7057B6D2AB99167118D0 /* Pods_APHTTPMonitor_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		98A98149697C80CEF8D5772791E92E66 /* FBSnapshotTestCase */ = {
@@ -638,7 +648,7 @@
 			);
 			name = FBSnapshotTestCase;
 			productName = FBSnapshotTestCase;
-			productReference = 5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase */;
+			productReference = 5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		CA65059E808391E31616CB3E015A6B24 /* Swifter */ = {
@@ -656,7 +666,7 @@
 			);
 			name = Swifter;
 			productName = Swifter;
-			productReference = E7E98885A0FEF49E9EE8975449969BEB /* Swifter */;
+			productReference = E7E98885A0FEF49E9EE8975449969BEB /* Swifter.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D7958E81D3C4DEA1D9D5C2D686E85872 /* APHTTPMonitor */ = {
@@ -676,7 +686,7 @@
 			);
 			name = APHTTPMonitor;
 			productName = APHTTPMonitor;
-			productReference = 498DADF514D663E7562D1B751F5ACCFA /* APHTTPMonitor */;
+			productReference = 498DADF514D663E7562D1B751F5ACCFA /* APHTTPMonitor.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -697,8 +707,6 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = BFC7E8F5B1385FDA66B8F5457EC8EFF0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -742,7 +750,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A962F9098CAA9759B42EB9C19C2AEE9 /* APHTTPMonitor-APHTTPMonitor in Resources */,
+				9A962F9098CAA9759B42EB9C19C2AEE9 /* APHTTPMonitor.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,10 +775,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7AF2C922D3E649300E24DBE /* URLRequestExtension.swift in Sources */,
 				78BEE18BE92D05D84FA72577CBF88B28 /* APHTTPMonitor.swift in Sources */,
 				0660AD07CE4EFB555752C6D7914B4DFB /* APHTTPMonitor-dummy.m in Sources */,
+				F7AF2C942D3E652E00E24DBE /* URLResponseExtension.swift in Sources */,
+				F7AF2C902D3E57D800E24DBE /* APHTTPPageBuilder.swift in Sources */,
 				A0EA07F483111EA92E86B6D5738757E2 /* APHTTPTrackedRequest.swift in Sources */,
 				D14319F63EF1E1FC2F03B85E9BAC3E4B /* URLSessionExtension.swift in Sources */,
+				F7AF2C962D3E6F6600E24DBE /* APHTTPRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1064,8 +1076,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
