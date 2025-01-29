@@ -44,7 +44,7 @@ import Swifter
         }
     }
     
-    @objc func generateMainRoute() {
+    @objc func generateMainRoutes() {
         //Listening for the main route
         server["/"] = { request in
             //Building the index page
@@ -56,6 +56,18 @@ import Swifter
             
             //Index page successfully builded and served
             return HttpResponse.ok(.text(indexHtml!))
+        }
+        
+        server["/about"] = { request in
+            //Building the about page
+            let aboutHtml = self.pageBuilder.buildAboutPage()
+            guard aboutHtml != nil else {
+                //Error building the index page
+                return HttpResponse.notFound
+            }
+            
+            //Index page successfully builded and served
+            return HttpResponse.ok(.text(aboutHtml!))
         }
     }
     

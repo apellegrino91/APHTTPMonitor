@@ -12,6 +12,7 @@
     var detailTemplate : String?            //detail.html string with placeholders
     var detailTableTemplate : String?       //table.html string with placeholders
     var detailTableRowTemplate : String?    //table-row.html string with placeholders
+    var aboutTemplate : String?             //about.html string with placeholders
     var cssTemplate : String?               //styles.css string
     var segmentedJsTemplate : String?       //segmented.js string
     
@@ -197,5 +198,17 @@
         htmlString = htmlString!.replacingOccurrences(of: "{value}", with: value!)
         
         return htmlString!
+    }
+    
+    //MARK: About page methods
+    
+    @objc func buildAboutPage() -> String? {
+        //Loading index.html if needed
+        if aboutTemplate == nil {
+            let htmlFilePath = bundle.path(forResource: "about", ofType: "html")
+            aboutTemplate = try? String(contentsOfFile: htmlFilePath!, encoding: String.Encoding.utf8)
+        }
+        
+        return aboutTemplate
     }
 }

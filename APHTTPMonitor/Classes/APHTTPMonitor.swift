@@ -50,7 +50,7 @@ import Swifter
         
         //Prepare the webserver to listen and serve the main route and the assets
         router?.generateAssets()
-        router?.generateMainRoute()
+        router?.generateMainRoutes()
     }
     
     @objc public func start(port: Int = 3000) -> String? {

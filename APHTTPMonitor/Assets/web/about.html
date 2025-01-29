@@ -1,0 +1,84 @@
+
+<html>
+    <head>
+        <title>APHTTPMonitor</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+        <link rel="stylesheet" href="styles.css" type="text/css">
+         <meta http-equiv="refresh" content="10" />
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+            <span class="navbar-brand mb-0 h1">APHTTPMonitor</span>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Requests</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+            </ul>
+            <button class="btn btn-outline-light my-2 my-sm-0" onclick="document.location.reload()">Refresh</button>
+        </nav>
+        <div class="container mt-6 mb-3">
+            
+                <h1>APHTTPMonitor</h1>
+                <p>APHTTPMonitor is a simple HTTP monitoring tool. You just need to add a line of code in your app and navigate to a specific URL on another terminal’s browser. You’ll see a simple and clear webpage with a listing of HTTP requests and the corresponding responses.</p>
+                
+                <h2>This tool was created because:</h2>
+                <ul>
+                    <li>You cannot easily see the HTTP traffic of your app with the Xcode Network Monitoring Tool if you’re using a simulator.</li>
+                    <li>Charles is helpful, but you need to configure SSL proxying, which can be tedious.</li>
+                    <li>If you need to check the network activity of your app after a long time, you’ll probably lose the connection with the debugger.</li>
+                    <li>It’s useful if you have to check the HTTP requests made by some third-party libraries in your app.</li>
+                    <li>If you’re working, it’s really convenient to have all this information on your browser instead of the console or the device itself.</li>
+                </ul>
+                
+                <p>This tool is compatible with Swift and Objective-C and supports iOS 11.0 and later.</p>
+                
+                <h2>Installation</h2>
+                <p>You can import this library into your project via CocoaPods by adding this line:</p>
+                    <code>pod 'APHTTPMonitor'</code>
+                
+                <h2>Usage</h2>
+                <p>You just need to add this line of code when you want to start recording HTTP activity:</p>
+                    <code>let url = APHTTPMonitor.shared().start()</code>
+                <p>The <code>url</code> variable will contain the URL you have to navigate to in your browser.</p>
+                
+                <p>If you want to stop recording, you can use this useful method:</p>
+                <pre>
+                    <code>APHTTPMonitor.shared().stop()</code>
+                </pre>
+                
+                <h2>IMPORTANT!</h2>
+                <p>This is a debugging tool, so it’s really important to use it only in debug mode. Remember to remove it before submitting to the App Store.</p>
+                
+                <h3>Useful tips:</h3>
+                <ul>
+                    <li>Use the <code>#ifdef DEBUG</code> macro to isolate the use of APHTTPMonitor.</li>
+                    <li>Include the APHTTPMonitor pod in your podfile only in a debug target to avoid importing the pod in production.</li>
+                </ul>
+                
+                <h2>About the author</h2>
+                <p>I’m Antongiulio, a passionate coder with 13+ years of experience from Naples (IT), music, pizza, and football lover, and huge SSC Napoli fan.</p>
+
+        </div>
+        <!-- jQuery -->
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+            ></script>
+        <!-- Popper.js, then Bootstrap JS -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+            ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+            ></script>
+    </body>
+</html>
