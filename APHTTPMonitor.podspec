@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '14331895' => 'antongiuliopellegrino@gmail.com' }
   s.source           = { :git => 'https://github.com/apellegrino91/APHTTPMonitor.git', :tag => s.version.to_s }
+  s.swift_version = "4.0"
   s.ios.deployment_target = '11.0'
   s.source_files = 'APHTTPMonitor/Classes/**/*'
   s.frameworks = 'UIKit'
